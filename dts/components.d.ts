@@ -10,6 +10,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AuthButton: typeof import('./../src/views/auth/components/AuthButton.vue')['default']
+    BackButton: typeof import('./../src/components/BackButton.vue')['default']
+    BreedsSearch: typeof import('./../src/components/BreedsSearch.vue')['default']
     Compute: typeof import('./../src/components/Compute.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -29,6 +31,7 @@ declare module '@vue/runtime-core' {
     Navigation: typeof import('@/views/Navigation/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserLog: typeof import('./../src/components/UserLog.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

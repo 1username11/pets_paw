@@ -7,7 +7,7 @@ import Voting from '@/views/Voting/Voting.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
+    path: '/',
     name: routeNames.home,
     component: Home
   },

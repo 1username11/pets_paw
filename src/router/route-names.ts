@@ -1,7 +1,7 @@
 
 export const routeNames = {
-  home: 'Home',
-  breeds: 'Breeds',
-  gallery: 'Gallery',
-  voting: 'Voting'
+  home: '/',
+  breeds: 'breeds',
+  gallery: 'gallery',
+  voting: 'voting'
 }
