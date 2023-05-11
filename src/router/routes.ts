@@ -4,6 +4,7 @@ import Home from '@/views/HomePage/Home.vue'
 import Breeds from '@/views/Breeds/Breeds.vue'
 import Gallery from '@/views/Gallery/Gallery.vue'
 import Voting from '@/views/Voting/Voting.vue'
+import Grid from '@/components/Grid.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/voting',
     name: routeNames.voting,
     component: Voting
+  },
+  {
+    path: '/grid',
+    name: routeNames.grid,
+    component: Grid
   }
 
 ]

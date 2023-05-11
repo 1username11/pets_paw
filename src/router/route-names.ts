@@ -3,5 +3,6 @@ export const routeNames = {
   home: '/',
   breeds: 'breeds',
   gallery: 'gallery',
-  voting: 'voting'
+  voting: 'voting',
+  grid: 'grid'
 }
