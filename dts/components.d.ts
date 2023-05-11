@@ -25,6 +25,8 @@ declare module '@vue/runtime-core' {
     FF: typeof import('./../src/components/FF.vue')['default']
     IconCar: typeof import('~icons/icon/car')['default']
     IconCart: typeof import('~icons/icon/cart')['default']
+    Logo: typeof import('./../src/components/Logo.vue')['default']
+    Navigation: typeof import('@/views/Navigation/Navigation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
