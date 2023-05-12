@@ -1,20 +1,13 @@
 <script setup lang="ts">
 
+import { routeNames } from '@/router/route-names'
 </script>
 
 <template>
   <div class="flex flex-col space-y-2.5">
-    <BreedsSearch />
+    <AppToolBar />
     <div class="min-h-[780px] bg-white rounded-2xl p-5">
-      <div class="flex space-x-2 items-center">
-        <BackButton />
-        <div
-          class="flex flex-col justify-center  py-2.5 w-[146px] h-[40px] rounded-lg text-[12px]
-           tracking-widest text-center bg-[#FF868E] text-white cursor-pointer"
-        >
-          VOTING
-        </div>
-      </div>
+      <BackButton :page="routeNames.voting" />
       <div>
         <img src="src/assets/image 1.png" alt="No image" class="w-[640px] h-[360px] mt-5 rounded-[20px]">
 

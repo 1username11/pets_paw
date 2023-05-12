@@ -13,47 +13,50 @@
       Lets start using The Dogs API
     </p>
     <div class="flex flex-row space-x-4 mt-5">
-      <router-link class="flex flex-col link" :to="routeNames.voting">
+      <router-link class="flex flex-col group" :to="routeNames.voting">
         <div
-          class="flex flex-col justify-center w-[138px] h-[198px] bg-[#B4B7FF] rounded-3xl border-4
-      border-[#E1E2FF] border-opacity-60"
+          class="img-wrapper flex flex-col justify-center w-[138px] h-[198px] bg-[#B4B7FF]
+          rounded-3xl border-4 border-[#E1E2FF] border-opacity-60
+          group-hover:border-white group-hover:border-opacity-100 group-focus:border-[#FBE0DC]"
         >
           <img class="h-[124px] w-[100px] mx-auto" src="../../assets/NavigationImages/vote-table.png" alt="image">
         </div>
         <div
-          class="flex flex-col justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
-        tracking-widest text-[#FF868E] text-center
-        hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white cursor-pointer"
+          class="group-hover:bg-[#FBE0DC] text-wrapper flex flex-col justify-center py-2.5 w-[138px]
+          h-[36px] bg-white rounded-lg text-[12px] mt-2.5
+          tracking-widest text-[#FF868E] text-center cursor-pointer group-focus:bg-[#FF868E] group-focus:text-white"
         >
           VOTING
         </div>
       </router-link>
-      <router-link :to="routeNames.breeds" class="flex flex-col link">
+      <router-link :to="routeNames.breeds" class="flex flex-col group">
         <div
           class="flex flex-col justify-center w-[138px] h-[198px] bg-[#97EAB9] rounded-3xl border-4
-      border-[#D5F7E3] border-opacity-60"
+      border-[#D5F7E3] border-opacity-60 group-hover:border-white group-hover:border-opacity-100
+      group-focus:border-[#FBE0DC]"
         >
           <img class="h-[163px] w-[117px] mx-auto" src="../../assets/NavigationImages/pet-breeds.png" alt="image">
         </div>
         <div
           class="flex flex-col justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
-        tracking-widest text-[#FF868E] text-center
-        hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white cursor-pointer"
+        tracking-widest text-[#FF868E] text-center hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white
+        cursor-pointer  group-focus:bg-[#FF868E] group-focus:text-white"
         >
           BREEDS
         </div>
       </router-link>
-      <router-link :to="routeNames.gallery" class="flex flex-col link">
+      <router-link :to="routeNames.gallery" class="flex flex-col group">
         <div
           class="flex flex-col justify-center w-[138px] h-[198px] bg-[#FFD280] rounded-3xl border-4
-      border-[#FFEDCC] border-opacity-60"
+      border-[#FFEDCC] border-opacity-60 group-hover:border-white
+      group-hover:border-opacity-100 group-focus:border-[#FBE0DC]"
         >
           <img class="h-[190px] w-[112px] mx-auto" src="../../assets/NavigationImages/images-search.png" alt="image">
         </div>
         <div
           class="flex flex-col justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
-        tracking-widest text-[#FF868E] text-center
-        hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white cursor-pointer"
+        tracking-widest text-[#FF868E] text-center hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white
+        cursor-pointer  group-focus:bg-[#FF868E] group-focus:text-white"
         >
           GALLERY
         </div>
@@ -72,7 +75,7 @@ import { routeNames } from '@/router/route-names'
       border-color: white;
     }
   }
-  &:active{
+  &:focus{
     :first-child{
       border-color: #FBE0DC;
     }
