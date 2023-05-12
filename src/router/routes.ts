@@ -4,7 +4,9 @@ import Home from '@/views/HomePage/Home.vue'
 import Breeds from '@/views/Breeds/Breeds.vue'
 import Gallery from '@/views/Gallery/Gallery.vue'
 import Voting from '@/views/Voting/Voting.vue'
-import Grid from '@/components/Grid.vue'
+import Likes from '@/views/Likes/Likes.vue'
+import Dislikes from '@/views/Dislikes/Dislikes.vue'
+import Favorite from '@/views/Favorite/Favorite.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,9 +30,19 @@ const routes: Array<RouteRecordRaw> = [
     component: Voting
   },
   {
-    path: '/grid',
-    name: routeNames.grid,
-    component: Grid
+    path: '/likes',
+    name: routeNames.likes,
+    component: Likes
+  },
+  {
+    path: '/dislikes',
+    name: routeNames.dislikes,
+    component: Dislikes
+  },
+  {
+    path: '/favorite',
+    name: routeNames.favorite,
+    component: Favorite
   }
 
 ]

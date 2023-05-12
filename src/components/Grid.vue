@@ -1,17 +1,17 @@
 <template>
   <div class="grid-container">
     <div
-      v-for="(image, idx) in images"
-      :key="image"
+      v-for="(breed, idx) in breeds"
+      :key="breed"
       :class="styleSwitcher(styles, idx)"
     >
-      <img :src="image" alt="None" class="h-full w-full object-cover object-center">
+      <img :src="breed.image.url" alt="None" class="h-full w-full object-cover object-center">
     </div>
   </div>
 </template>
 <script setup lang="ts">
 defineProps<{
-  images: string[]
+  breeds: any[]
 }>()
 const styles = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10']
 function styleSwitcher (styles: string[], idx: number) {

@@ -4,5 +4,7 @@ export const routeNames = {
   breeds: 'breeds',
   gallery: 'gallery',
   voting: 'voting',
-  grid: 'grid'
+  likes: 'likes',
+  dislikes: 'dislikes',
+  favorite: 'favorites'
 }

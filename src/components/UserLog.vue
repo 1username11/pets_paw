@@ -1,10 +1,23 @@
 <template>
-  <div class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl">
+  <div v-if="typeOfLog === 'Likes'" class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl">
     <div class="py-1 px-3 bg-white rounded-2xl">
-      {{ Date.now() }}
+      {{ `${date.getHours()}:${date.getMinutes()}` }}
     </div>
     <div>
-      Image ID: 123 was added to Favorites
+      Image ID: {{ image.id }} was added to {{ typeOfLog }}
+    </div>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10ZM10 1.33333C5.21353 1.33333 1.33333 5.21353 1.33333 10C1.33333 14.7865 5.21353 18.6667 10 18.6667C14.7865 18.6667 18.6667 14.7865 18.6667 10C18.6667 5.21353 14.7865 1.33333 10 1.33333ZM6.66667 8H5.33333V6.66667H6.66667V8ZM14.6667 8H13.3333V6.66667H14.6667V8ZM6.13333 11.0667L6.53333 11.6C8.26667 13.9111 11.7333 13.9111 13.4667 11.6L13.8667 11.0667L14.9333 11.8667L14.5333 12.4C12.2667 15.4222 7.73333 15.4222 5.46667 12.4L5.06667 11.8667L6.13333 11.0667Z" fill="#97EAB9" />
+      </svg>
+    </div>
+  </div>
+  <div v-else-if="typeOfLog === 'Favorites'" class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl">
+    <div class="py-1 px-3 bg-white rounded-2xl">
+      {{ `${date.getHours()}:${date.getMinutes()}` }}
+    </div>
+    <div>
+      Image ID: {{ image.id }} was added to {{ typeOfLog }}
     </div>
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
@@ -12,4 +25,25 @@
       </svg>
     </div>
   </div>
+  <div v-if="typeOfLog === 'Dislikes'" class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl">
+    <div class="py-1 px-3 bg-white rounded-2xl">
+      {{ `${date.getHours()}:${date.getMinutes()}` }}
+    </div>
+    <div>
+      Image ID: {{ image.id }} was added to {{ typeOfLog }}
+    </div>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10ZM10 1.33333C5.21353 1.33333 1.33333 5.21353 1.33333 10C1.33333 14.7865 5.21353 18.6667 10 18.6667C14.7865 18.6667 18.6667 14.7865 18.6667 10C18.6667 5.21353 14.7865 1.33333 10 1.33333ZM6.66667 8H5.33333V6.66667H6.66667V8ZM14.6667 8H13.3333V6.66667H14.6667V8ZM5.06667 13.4667L5.46667 12.9333C7.73333 9.91111 12.2667 9.91111 14.5333 12.9333L14.9333 13.4667L13.8667 14.2667L13.4667 13.7333C11.7333 11.4222 8.26667 11.4222 6.53333 13.7333L6.13333 14.2667L5.06667 13.4667Z" fill="#FFD280" />
+      </svg>
+    </div>
+  </div>
 </template>
+
+<script lang="ts" setup>
+defineProps<{
+  typeOfLog: string
+  image: IImage
+}>()
+const date = new Date()
+</script>

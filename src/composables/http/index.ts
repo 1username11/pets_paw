@@ -7,10 +7,7 @@ import {
 } from './interceptors'
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    apikey: import.meta.env.VITE_API_KEY
-  }
+  baseURL: import.meta.env.VITE_API_URL
 })
 instance.interceptors.response.use(
   res => responseInterceptor(res),
