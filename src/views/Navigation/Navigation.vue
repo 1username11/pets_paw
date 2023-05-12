@@ -69,17 +69,14 @@ import { routeNames } from '@/router/route-names'
 </script>
 
 <style scoped lang="scss">
-.link{
-  &:hover{
-    :first-child{
-      border-color: white;
-    }
-  }
-  &:focus{
-    :first-child{
-      border-color: #FBE0DC;
-    }
+.router-link-active.router-link-exact-active {
+  .img-wrapper {
+    border-color: #FBE0DC;
   }
 
+  .text-wrapper {
+    background-color: #FF868E;
+    color: white;
+  }
 }
 </style>
