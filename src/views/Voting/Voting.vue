@@ -1,11 +1,10 @@
 <template>
   <div class="flex flex-col space-y-2.5">
     <AppToolBar />
-    <div class="min-h-[780px] bg-white rounded-2xl p-5">
+    <div v-loading="loading" class="min-h-[780px] bg-white rounded-2xl p-5">
       <BackButton :page="routeNames.voting" />
       <div>
         <el-image
-          v-loading="loading"
           :src="randomImage?.url"
           alt="No image"
           class="w-[640px] h-[360px] mt-5 rounded-[20px] z-0"
@@ -15,7 +14,7 @@
           relative space-x-1 z-50"
         >
           <button
-            class="bg-[#97EAB9] w-[80px] h-[80px] rounded-l-2xl  hover:bg-[#97EAB9] hover:opacity-30 first-button"
+            class="bg-[#97EAB9] w-[80px] h-[80px] rounded-l-2xl  hover:bg-[#97EAB9] hover:opacity-30 like-button"
             @click="addToLikes"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -31,10 +30,10 @@
             </svg>
           </button>
           <button
-            class="bg-[#FF868E] w-[80px] h-[80px]  hover:bg-[#FF868E] hover:opacity-30 second-button"
+            class="bg-[#FF868E] w-[80px] h-[80px]  hover:bg-[#FF868E] hover:opacity-30 favorite-button"
             @click="addToFavorites"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
+            <svg v-if="!addToFavorite" xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -47,9 +46,17 @@
                 14.2929 25.7071L2.36396 13.7782C0.850339 12.2646 0 10.2116 0 8.07107Z" fill="white"
               />
             </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
+              <path
+                d="M8.07107 0C3.61354 0 0 3.61354 0 8.07107C0 10.2116 0.850339 12.2646 2.36396 13.7782L14.2929
+                25.7071C14.6834 26.0976 15.3166 26.0976 15.7071 25.7071L27.636 13.7782C29.1497 12.2646 30 10.2116
+                30 8.07107C30 3.61354 26.3865 0 21.9289 0C19.7884 0 17.7354 0.850341 16.2218 2.36396L15
+                3.58579L13.7782 2.36396C12.2646 0.850343 10.2116 0 8.07107 0Z" fill="white"
+              />
+            </svg>
           </button>
           <button
-            class="bg-[#FFD280] w-[80px] h-[80px] rounded-r-2xl hover:bg-[#FFD280] hover:opacity-30 third-button"
+            class="bg-[#FFD280] w-[80px] h-[80px] rounded-r-2xl hover:bg-[#FFD280] hover:opacity-30 dislike-button"
             @click="addToDislikes"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -82,6 +89,7 @@ import { routeNames } from '@/router/route-names'
 const randomImage = ref<IImage>({} as IImage)
 const loading = ref(true)
 const logs = ref([] as ILog[])
+const addToFavorite = ref(false)
 
 function logUserAction (action: 'Likes' | 'Dislikes' | 'Favorites') {
   const log: ILog = {
@@ -104,6 +112,7 @@ async function addToLikes () {
 
 async function addToFavorites () {
   try {
+    addToFavorite.value = true
     await generalService.addToFavorites(randomImage.value.id)
     logUserAction('Favorites')
   } catch (e) {
@@ -131,6 +140,7 @@ async function vote (value: 1 | -1) {
 
 async function getImage () {
   try {
+    addToFavorite.value = false
     loading.value = true
     randomImage.value = (await generalService.getImage())[0]
   } catch (e) {
@@ -140,23 +150,23 @@ async function getImage () {
   }
 }
 
-onMounted(async () => await getImage())
+getImage()
 </script>
 
 <style scoped lang="scss">
-.first-button:hover{
+.like-button:hover{
   :first-child{
     fill: darkcyan;
   }
 }
-.second-button:hover{
+.favorite-button:hover{
   :first-child{
-    fill: black;
+    fill: indianred;
   }
 }
-.third-button:hover{
+.dislike-button:hover{
   :first-child{
-    fill: yellow;
+    fill: darkorange;
   }
 }
 </style>

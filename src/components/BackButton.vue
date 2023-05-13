@@ -1,7 +1,9 @@
-
 <template>
   <div class="flex space-x-2 items-center flex-row">
-    <div class="flex justify-center w-10 h-10 items-center bg-[#FBE0DC] rounded-lg">
+    <div
+      class="flex justify-center w-10 h-10 items-center bg-[#FBE0DC] rounded-lg cursor-pointer"
+      @click="$router.back()"
+    >
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20" fill="none">
         <path
           d="M0.709811 10.9901L9.30951 19.5896C9.85651 20.1369 10.7435 20.1369 11.2903
@@ -15,7 +17,7 @@
     <div
       class="flex flex-col justify-center  py-2.5 w-[138px]
        h-10 rounded-lg text-[12px] text-lg tracking-widest  text-center
-       bg-[#FF868E] text-white cursor-pointer uppercase"
+       bg-[#FF868E] text-white cursor-default uppercase"
     >
       {{ page }}
     </div>
