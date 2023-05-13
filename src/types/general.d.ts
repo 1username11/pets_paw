@@ -3,6 +3,10 @@ type TIndexedObject<T = any> = {
 }
 
 type TCallbackFn<T extends unknown[] = [], R = void> = (...args: T) => R
+interface ILog {
+  imageId: string
+  action: string
+}
 
 interface IImage {
   id: string

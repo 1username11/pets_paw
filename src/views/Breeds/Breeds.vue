@@ -10,7 +10,7 @@
         <DecsendingSorting />
       </div>
 
-      <Grid :images="images" />
+      <Grid :images="list" />
     </div>
   </div>
 </template>
@@ -32,4 +32,8 @@ const images = [
   // 'src/assets/image 1.png',
   // 'src/assets/image 1.png',
 ]
+const list = ref()
+onMounted(async () => {
+  list.value = await generalService.getImages(10, 0)
+})
 </script>

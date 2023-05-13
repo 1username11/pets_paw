@@ -1,19 +1,18 @@
 class GeneralService {
   getImage () {
-    return useHttp.get('v1/images/search')
+    return useHttp.get('/images/search')
   }
 
   addToFavorites (payload: IImage) {
-    return useHttp.post('v1/favourites', { image_id: payload.id }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': import.meta.env.VITE_API_URL
-      }
-    })
+    return useHttp.post('/favourites', { image_id: payload.id })
+  }
+
+  vote (payload: any) { // TODO: add type for payload
+    return useHttp.post('/votes', payload)
   }
 
   getImages (limit: number, page: number): Promise<IBreed[]> {
-    return useHttp.get(`v1/breeds?limit=${limit}&page=${page}`)
+    return useHttp.get(`/breeds?limit=${limit}&page=${page}`)
   }
 }
 
