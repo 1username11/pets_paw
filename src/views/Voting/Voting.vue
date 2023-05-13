@@ -68,8 +68,8 @@
       </div>
       <div class="mt-5 space-y-3">
         <UserLog
-          v-for="(log) in logs"
-          :key="log.imageId"
+          v-for="(log, idx) in logs"
+          :key="log.imageId + idx"
           :log="log"
         />
       </div>
@@ -94,6 +94,7 @@ async function addToLikes () {
   } else {
     logs.value.push(log)
   }
+  console.log(logs.value)
   await voteUp()
   await getImage()
 }
@@ -108,6 +109,7 @@ async function addToFavorites () {
   } else {
     logs.value.push(log)
   }
+  console.log(logs.value)
   try {
     if (randomImage.value) {
       await generalService.addToFavorites(randomImage.value)
@@ -130,6 +132,7 @@ async function addToDislikes () {
   } else {
     logs.value.push(log)
   }
+  console.log(logs.value)
   await voteDown()
   await getImage()
 }
