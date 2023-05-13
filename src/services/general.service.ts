@@ -3,8 +3,8 @@ class GeneralService {
     return useHttp.get('/images/search')
   }
 
-  addToFavorites (payload: IImage) {
-    return useHttp.post('/favourites', { image_id: payload.id })
+  addToFavorites (id: string) {
+    return useHttp.post('/favourites', { image_id: id })
   }
 
   vote (payload: any) { // TODO: add type for payload

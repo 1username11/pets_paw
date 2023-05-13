@@ -83,10 +83,10 @@ const randomImage = ref<IImage>({} as IImage)
 const loading = ref(true)
 const logs = ref([] as ILog[])
 
-async function addToLikes () {
+function logUserAction (action: 'Likes' | 'Dislikes' | 'Favorites') {
   const log: ILog = {
     imageId: randomImage.value.id,
-    action: 'Likes'
+    action
   }
   if (logs.value.length > 3) {
     logs.value.push(log)
@@ -94,63 +94,39 @@ async function addToLikes () {
   } else {
     logs.value.push(log)
   }
-  console.log(logs.value)
-  await voteUp()
+}
+
+async function addToLikes () {
+  await vote(1)
+  logUserAction('Likes')
   await getImage()
 }
+
 async function addToFavorites () {
-  const log: ILog = {
-    imageId: randomImage.value.id,
-    action: 'Favorites'
-  }
-  if (logs.value.length > 3) {
-    logs.value.push(log)
-    logs.value.shift()
-  } else {
-    logs.value.push(log)
-  }
-  console.log(logs.value)
   try {
-    if (randomImage.value) {
-      await generalService.addToFavorites(randomImage.value)
-    } else {
-      throw new Error()
-    }
+    await generalService.addToFavorites(randomImage.value.id)
+    logUserAction('Favorites')
   } catch (e) {
     console.log(e)
   }
 }
 
 async function addToDislikes () {
-  const log: ILog = {
-    imageId: randomImage.value.id,
-    action: 'Dislikes'
-  }
-  if (logs.value.length > 3) {
-    logs.value.push(log)
-    logs.value.shift()
-  } else {
-    logs.value.push(log)
-  }
-  console.log(logs.value)
-  await voteDown()
+  await vote(-1)
+  logUserAction('Dislikes')
   await getImage()
 }
 
-async function voteUp () {
-  const payload = {
-    image_id: randomImage.value.id,
-    value: 1
+async function vote (value: 1 | -1) {
+  try {
+    const payload = {
+      image_id: randomImage.value.id,
+      value
+    }
+    await generalService.vote(payload)
+  } catch (e) {
+    console.log(e)
   }
-  await generalService.vote(payload)
-}
-
-async function voteDown () {
-  const payload = {
-    image_id: randomImage.value.id,
-    value: -1
-  }
-  await generalService.vote(payload)
 }
 
 async function getImage () {

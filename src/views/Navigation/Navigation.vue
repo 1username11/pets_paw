@@ -38,7 +38,7 @@
           <img class="h-[163px] w-[117px] mx-auto" src="../../assets/NavigationImages/pet-breeds.png" alt="image">
         </div>
         <div
-          class="flex flex-col justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
+          class="flex flex-col group-hover:bg-[#FBE0DC] justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
         tracking-widest text-[#FF868E] text-center hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white
         cursor-pointer  group-focus:bg-[#FF868E] group-focus:text-white"
         >
@@ -54,7 +54,7 @@
           <img class="h-[190px] w-[112px] mx-auto" src="../../assets/NavigationImages/images-search.png" alt="image">
         </div>
         <div
-          class="flex flex-col justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
+          class="flex flex-col group-hover:bg-[#FBE0DC] justify-center  py-2.5 w-[138px] h-[36px] bg-white rounded-lg text-[12px] mt-2.5
         tracking-widest text-[#FF868E] text-center hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white
         cursor-pointer  group-focus:bg-[#FF868E] group-focus:text-white"
         >
