@@ -10,7 +10,5 @@ import Navigation from '@/views/Navigation/Navigation.vue'
 const generalStore = useGeneralStore()
 const { getBreeds } = generalStore
 
-onMounted(async () => {
-  await getBreeds()
-})
+onMounted(getBreeds)
 </script>

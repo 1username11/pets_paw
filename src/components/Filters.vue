@@ -1,27 +1,33 @@
 <template>
-  <div class="flex flex-row justify-between w-full h-[40px]">
-    <el-select v-model="breed" clearable placeholder="All breeds" class="w-[226px]">
+  <div class="flex justify-between w-full space-x-1">
+    <el-select
+      v-model="breedSelectValue"
+      clearable
+      placeholder="All breeds"
+    >
       <el-option
-        v-for="breedItem in breeds"
+        v-for="breedItem in breedsNames"
         :key="breedItem"
         :label="breedItem"
         :value="breedItem"
       />
     </el-select>
 
-    <el-select v-model="limit" clearable placeholder="Limit" class="w-[101px]">
+    <el-select v-model="limit" clearable placeholder="Limit">
       <el-option
         v-for="limitItem in limits"
         :key="limitItem"
-        class="w-full h-full"
-        :label="limitItem"
+        :label="'limit' + ' ' + limitItem"
         :value="limitItem"
       />
     </el-select>
-    <div @click="sortingType = !sortingType">
-      <AscendingSorting v-if="sortingType" />
+
+    <div class="cursor-pointer" @click="sortingType === 'asc' ? sortingType = 'desc': sortingType='asc'">
+      <AscendingSorting v-if="sortingType === 'asc'" />
+
       <DecsendingSorting v-else />
     </div>
+
     <div class="flex items-center justify-center bg-[#F8F8F7] w-[40px] h-[40px] rounded-2xl">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +51,19 @@
 </template>
 
 <script lang="ts" setup>
-const breed = ref<string>()
-const breeds = ['pes-patron', 'hatiko', 'bascervile hound']
+const generalStore = useGeneralStore()
+const { breedSelectValue, limit, sortingType, breedsNames } = storeToRefs(generalStore)
 
-const limit = ref<string>()
-const limits = ['limit 5', 'limit 10', 'limit 15', 'limit 20']
+const limits = [5, 10, 15, 20]
 
-const sortingType = ref(true)
 </script>
+
+<style lang="scss">
+.el-select{
+  .el-input__wrapper {
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+}
+</style>

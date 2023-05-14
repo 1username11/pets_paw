@@ -1,5 +1,5 @@
 <template>
-  <div class=" flex w-[40px] h-[40px] bg-[#F8F8F7] rounded-2xl justify-center items-center">
+  <div class="flex justify-center items-center w-[40px] h-[40px] bg-[#F8F8F7] rounded-2xl">
     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
       <path
         fill-rule="evenodd" clip-rule="evenodd" d="M3.80474 17.7239V0H5.13807V17.7239L8 14.8619L8.94281
