@@ -2,18 +2,20 @@
   <div class="grid-container">
     <div
       v-for="(breed, idx) in breeds"
-      :key="breed"
+      :key="breed.id"
       :class="styleSwitcher(styles, idx)"
     >
-      <el-image :src="breed" alt="No image" fit="cover" class="h-full w-full object-center" lazy/>
+      <el-image :src="breed.image.url" alt="No image" fit="cover" class="h-full w-full object-center" lazy/>
       <!-- TODO check response object and make interface for describe it -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { IBreed } from '@/types/general';
+
 defineProps<{
-  breeds: any[]
+  breeds: IBreed[]
 }>()
 
 const styles = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10']

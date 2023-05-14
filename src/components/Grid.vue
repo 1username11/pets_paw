@@ -8,8 +8,10 @@
 </template>
 
 <script setup lang="ts">
+import type { IBreed } from '@/types/general'
+
 const props = defineProps<{
-  list: any[] // TODO describe types
+  list: IBreed[] // TODO describe types
 }>()
 
 const breedList = computed(() => {
@@ -23,8 +25,4 @@ const breedList = computed(() => {
   }
   return newList
 })
-console.log(props.list)
-
-console.log(breedList)
-
 </script>
