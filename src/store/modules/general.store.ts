@@ -1,9 +1,14 @@
-// the first argument is a unique id of the store across your application
+import type { IBreed } from "@/types/general"
+
 export const useGeneralStore = defineStore('generalStore', () => {
-  
+  const breedsList = ref<IBreed[]>([])
+  async function getBreeds () {
+    const res = await generalService.getBreeds(10, 0)
+    breedsList.value = res
+  }
 
   return {
- 
+    getBreeds
   }
 })
 

@@ -6,4 +6,11 @@
 </template>
 <script setup lang="ts">
 import Navigation from '@/views/Navigation/Navigation.vue'
+
+const generalStore = useGeneralStore()
+const { getBreeds } = generalStore
+
+onMounted(async () => {
+  await getBreeds()
+})
 </script>

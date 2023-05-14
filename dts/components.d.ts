@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ExampleViewComponent: typeof import('./../src/views/example-view/components/ExampleViewComponent.vue')['default']
     FF: typeof import('./../src/components/FF.vue')['default']
+    Filters: typeof import('./../src/components/Filters.vue')['default']
     GaleryToolbar: typeof import('./../src/components/GaleryToolbar.vue')['default']
     Grid: typeof import('./../src/components/Grid.vue')['default']
     GridItem: typeof import('./../src/components/GridItem.vue')['default']
