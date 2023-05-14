@@ -35,6 +35,7 @@ declare module '@vue/runtime-core' {
     GaleryToolbar: typeof import('./../src/components/GaleryToolbar.vue')['default']
     Grid: typeof import('./../src/components/Grid.vue')['default']
     GridItem: typeof import('./../src/components/GridItem.vue')['default']
+    GridModule: typeof import('./../src/components/GridModule.vue')['default']
     IconCar: typeof import('~icons/icon/car')['default']
     IconCart: typeof import('~icons/icon/cart')['default']
     ImageLimit: typeof import('./../src/components/ImageLimit.vue')['default']

@@ -11,7 +11,7 @@ class GeneralService {
     return useHttp.post('/votes', payload)
   }
 
-  getImages (limit: number, page: number): Promise<IBreed[]> {
+  getImages (limit: number, page: number) {
     return useHttp.get(`/breeds?limit=${limit}&page=${page}`)
   }
 }

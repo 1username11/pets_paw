@@ -24,7 +24,7 @@
     <div
       class="text-wrapper group-hover:bg-[#FBE0DC] flex flex-col justify-center py-2.5 w-[138px]
           h-[36px] bg-white rounded-lg text-[12px] mt-2.5
-          tracking-widest text-[#FF868E] text-center cursor-pointer"
+          tracking-widest text-[#FF868E] text-center cursor-pointer uppercase"
     >
       {{ name }}
     </div>
@@ -54,24 +54,5 @@ const names = {
     background-color: #FF868E;
     color: white;
   }
-}
-
-.voting-image{
-
-}
-.voting-wrapper{
-
-}
-.breeds-image{
-
-}
-.breeds-wrapper{
-
-}
-.gallery-image{
-
-}
-.gallery-wrapper{
-
 }
 </style>

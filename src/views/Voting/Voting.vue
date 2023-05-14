@@ -1,10 +1,13 @@
 <template>
   <div class="flex flex-col space-y-2.5">
     <AppToolBar />
+
     <div v-loading="loading" class="min-h-[780px] bg-white rounded-2xl p-5">
       <BackButton :page="routeNames.voting" />
+
       <div>
         <el-image
+          fit="cover"
           :src="randomImage?.url"
           alt="No image"
           class="w-[640px] h-[360px] mt-5 rounded-[20px] z-0"
@@ -73,6 +76,7 @@
           </button>
         </div>
       </div>
+
       <div class="mt-5 space-y-3">
         <UserLog
           v-for="(log, idx) in logs"
