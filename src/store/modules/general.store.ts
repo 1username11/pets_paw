@@ -5,9 +5,9 @@ export const useGeneralStore = defineStore('generalStore', () => {
   const breedSelectValue = ref<string>('')
   const limit = ref<number | undefined>()
   const sortingType = ref<'asc' | 'desc'>('asc')
-  const breedsNames = computed(() => breedsList.value.map((breed) => breed.name))
+  const breedsNames = computed<string[]>(() => breedsList.value.map((breed) => breed.name))
 
-  async function getBreeds() {
+  async function getBreeds () {
     breedsList.value = await generalService.getBreeds(20, 0)
   }
 

@@ -55,7 +55,6 @@ const generalStore = useGeneralStore()
 const { breedSelectValue, limit, sortingType, breedsNames } = storeToRefs(generalStore)
 
 const limits = [5, 10, 15, 20]
-
 </script>
 
 <style lang="scss">
@@ -65,5 +64,11 @@ const limits = [5, 10, 15, 20]
     border-radius: 10px;
     cursor: pointer;
 }
+}
+.el-select-dropdown{
+  &__list{
+    max-height: 200px;
+    overflow: auto;
+  }
 }
 </style>
