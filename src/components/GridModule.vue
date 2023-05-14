@@ -5,7 +5,7 @@
       :key="breed.id"
       :class="styleSwitcher(styles, idx)"
     >
-      <el-image :src="breed.image.url" alt="No image" fit="cover" class="h-full w-full object-center" lazy/>
+      <el-image :src="breed.image?.url" alt="No image" fit="cover" class="h-full w-full object-center" lazy/>
       <!-- TODO check response object and make interface for describe it -->
     </div>
   </div>

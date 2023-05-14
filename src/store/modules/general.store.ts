@@ -7,9 +7,11 @@ export const useGeneralStore = defineStore('generalStore', () => {
   const sortingType = ref<'asc' | 'desc'>('asc')
   const breedsNames = computed<string[]>(() => breedsList.value.map((breed) => breed.name))
 
-  async function getBreeds () {
-    breedsList.value = await generalService.getBreeds(20, 0)
+  async function getBreeds() {
+    breedsList.value = await generalService.getBreeds(20, Math.floor(Math.random() * 4))
   }
+
+  console.log(Math.floor(Math.random() * 4))
 
   const selectedBreeds = computed(() => {
     const slicedBreeds = limit.value
