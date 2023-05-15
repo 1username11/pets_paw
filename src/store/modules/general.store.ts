@@ -1,5 +1,3 @@
-import type { IBreed } from '@/types/general'
-
 export const useGeneralStore = defineStore('generalStore', () => {
   const breedsList = ref<IBreed[]>([])
   const breedSelectValue = ref<string>('')
@@ -7,11 +5,19 @@ export const useGeneralStore = defineStore('generalStore', () => {
   const sortingType = ref<'asc' | 'desc'>('asc')
   const breedsNames = computed<string[]>(() => breedsList.value.map((breed) => breed.name))
 
-  async function getBreeds() {
+  async function getBreeds () {
     breedsList.value = await generalService.getBreeds(20, Math.floor(Math.random() * 4))
   }
 
-  console.log(Math.floor(Math.random() * 4))
+  async function getVoted (value: 1 | -1) {
+    if (value === 1) {
+      const res = await generalService.getVoted()
+      return res.filter((vote: IVote) => vote.value === 1)
+    } else if (value === -1) {
+      const res = await generalService.getVoted()
+      return res.filter((vote: IVote) => vote.value === -1)
+    }
+  }
 
   const selectedBreeds = computed(() => {
     const slicedBreeds = limit.value
@@ -24,6 +30,7 @@ export const useGeneralStore = defineStore('generalStore', () => {
       : sortedBreeds
     return filteredBreeds
   })
+
   return {
     breedsList,
     breedSelectValue,
@@ -31,7 +38,8 @@ export const useGeneralStore = defineStore('generalStore', () => {
     sortingType,
     breedsNames,
     selectedBreeds,
-    getBreeds
+    getBreeds,
+    getVoted
   }
 })
 

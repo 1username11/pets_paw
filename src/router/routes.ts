@@ -2,6 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import { routeNames } from '@/router/route-names'
 import Home from '@/views/HomePage/Home.vue'
 import Breeds from '@/views/Breeds/Breeds.vue'
+import BreedsInfo from '@/views/Breeds/components/BreedsInfo.vue'
 import Gallery from '@/views/Gallery/Gallery.vue'
 import Voting from '@/views/Voting/Voting.vue'
 import Likes from '@/views/Likes/Likes.vue'
@@ -43,6 +44,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/favorite',
     name: routeNames.favorite,
     component: Favorite
+  },
+  {
+    path: '/breeds/:id',
+    name: routeNames.breedsInfo,
+    component: BreedsInfo
   }
 
 ]

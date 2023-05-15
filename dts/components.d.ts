@@ -42,6 +42,7 @@ declare module '@vue/runtime-core' {
     ImageLimit: typeof import('./../src/components/ImageLimit.vue')['default']
     Logo: typeof import('./../src/components/Logo.vue')['default']
     Navigation: typeof import('@/views/Navigation/Navigation.vue')['default']
+    NoItemsFound: typeof import('./../src/components/NoItemsFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UserLog: typeof import('./../src/components/UserLog.vue')['default']

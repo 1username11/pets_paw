@@ -91,7 +91,10 @@
 </template>
 
 <script lang="ts" setup>
+import { router } from '@/router';
 import { routeNames } from '@/router/route-names'
+console.log(router.currentRoute.value)
+
 
 const randomImage = ref<IImage>({} as IImage)
 const loading = ref(true)

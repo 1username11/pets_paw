@@ -1,28 +1,50 @@
 <template>
-  <div
-    v-for="(breedListItem, idx) in breedList"
-    :key="idx"
-  >
-    <GridModule :breeds="breedListItem" />
+  <div v-if="breed">
+    <div
+      v-for="(gridListItem, idx) in gridList"
+      :key="idx"
+    >
+      <GridModule :breeds="gridListItem" />
+    </div>
+  </div>
+  <div v-else-if="votes">
+    <div
+      v-for="(gridListItem, idx) in gridList"
+      :key="idx"
+    >
+      <GridModule :votes="gridListItem" @removeFromFavorites="$emit('removeFromFavorites')" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { IBreed } from '@/types/general'
-
 const props = defineProps<{
-  list: IBreed[] // TODO describe types
+  breed?: IBreed[] // TODO describe types
+  votes?: IVote[]
 }>()
 
-const breedList = computed(() => {
+defineEmits(['removeFromFavorites'])
+
+const gridList = computed(() => {
   const newList = []
-  if (props.list.length <= 10) {
-    newList.push(props.list)
-  } else {
-    for (let i = 0; i <= props.list.length; i += 10) {
-      newList.push(props.list.slice(i, i + 10))
+  if (props.breed) {
+    if (props.breed.length <= 10) {
+      newList.push(props.breed)
+    } else {
+      for (let i = 0; i <= props.breed.length; i += 10) {
+        newList.push(props.breed.slice(i, i + 10))
+      }
     }
+    return newList
+  } else if (props.votes) {
+    if (props.votes.length <= 10) {
+      newList.push(props.votes)
+    } else {
+      for (let i = 0; i <= props.votes.length; i += 10) {
+        newList.push(props.votes.slice(i, i + 10))
+      }
+    }
+    return newList
   }
-  return newList
 })
 </script>

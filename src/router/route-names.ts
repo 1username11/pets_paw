@@ -6,5 +6,6 @@ export const routeNames = {
   voting: 'voting',
   likes: 'likes',
   dislikes: 'dislikes',
-  favorite: 'favorites'
+  favorite: 'favorites',
+  breedsInfo: 'breedsInfo'
 }

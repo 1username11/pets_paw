@@ -9,10 +9,10 @@ interface ILog {
 }
 
 interface IImage {
-  id: string
-  url: string
-  width: number
-  height: number
+  id?: string
+  url?: string
+  width?: number
+  height?: number
 }
 
 interface IBreed {
@@ -57,4 +57,15 @@ interface IBreed {
   hypoallergenic: number
   reference_image_id: string
   image: IImage
+}
+
+interface IVote {
+  id: number
+  user_id?: string
+  image_id: string
+  sub_id: any
+  created_at: string
+  image: IImage
+  value?: number
+  country_code?: string
 }

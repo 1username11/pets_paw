@@ -9,7 +9,7 @@
         <Filters />
       </div>
 
-      <Grid :list="selectedBreeds" />
+      <Grid :breed="selectedBreeds" />
     </div>
   </div>
 </template>
