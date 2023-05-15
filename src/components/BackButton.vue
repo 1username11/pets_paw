@@ -1,5 +1,5 @@
 <template>
-  <div class="flex space-x-2 items-center flex-row">
+  <div class="flex space-x-2 items-center ">
     <div
       class="flex justify-center w-10 h-10 items-center bg-[#FBE0DC] rounded-lg cursor-pointer"
       @click="$router.back()"

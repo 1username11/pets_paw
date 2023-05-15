@@ -20,7 +20,7 @@
             class="bg-[#97EAB9] w-[80px] h-[80px] rounded-l-2xl  hover:bg-[#97EAB9] hover:opacity-30 like-button"
             @click="addToLikes"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -32,11 +32,12 @@
               />
             </svg>
           </button>
+
           <button
             class="bg-[#FF868E] w-[80px] h-[80px]  hover:bg-[#FF868E] hover:opacity-30 favorite-button"
             @click="addToFavorites"
           >
-            <svg v-if="!addToFavorite" xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
+            <svg v-if="!addedToFavorite" width="30" height="26" viewBox="0 0 30 26" fill="none">
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -49,7 +50,7 @@
                 14.2929 25.7071L2.36396 13.7782C0.850339 12.2646 0 10.2116 0 8.07107Z" fill="white"
               />
             </svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" width="30" height="26" viewBox="0 0 30 26" fill="none">
+            <svg v-else width="30" height="26" viewBox="0 0 30 26" fill="none">
               <path
                 d="M8.07107 0C3.61354 0 0 3.61354 0 8.07107C0 10.2116 0.850339 12.2646 2.36396 13.7782L14.2929
                 25.7071C14.6834 26.0976 15.3166 26.0976 15.7071 25.7071L27.636 13.7782C29.1497 12.2646 30 10.2116
@@ -58,11 +59,12 @@
               />
             </svg>
           </button>
+
           <button
             class="bg-[#FFD280] w-[80px] h-[80px] rounded-r-2xl hover:bg-[#FFD280] hover:opacity-30 dislike-button"
             @click="addToDislikes"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
@@ -90,10 +92,11 @@
 
 <script lang="ts" setup>
 import { routeNames } from '@/router/route-names'
+
 const randomImage = ref<IImage>({} as IImage)
 const loading = ref(true)
 const logs = ref([] as ILog[])
-const addToFavorite = ref(false)
+const addedToFavorite = ref(false)
 
 function logUserAction (action: 'Likes' | 'Dislikes' | 'Favorites') {
   const log: ILog = {
@@ -116,7 +119,7 @@ async function addToLikes () {
 
 async function addToFavorites () {
   try {
-    addToFavorite.value = true
+    addedToFavorite.value = true
     await generalService.addToFavorites(randomImage.value.id)
     logUserAction('Favorites')
   } catch (e) {
@@ -144,7 +147,7 @@ async function vote (value: 1 | -1) {
 
 async function getImage () {
   try {
-    addToFavorite.value = false
+    addedToFavorite.value = false
     loading.value = true
     randomImage.value = (await generalService.getImage())[0]
   } catch (e) {
@@ -154,7 +157,7 @@ async function getImage () {
   }
 }
 
-getImage()
+onMounted(getImage)
 </script>
 
 <style scoped lang="scss">

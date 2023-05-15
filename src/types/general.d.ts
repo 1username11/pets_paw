@@ -15,33 +15,11 @@ interface IImage {
   height: number
 }
 
-// interface IBreed {
-//   weight: {
-//     imperial: string
-//     metric: string
-//   }
-//   height: {
-//     imperial: string
-//     metric: string
-//   }
-//   id: number
-//   name: string
-//   bred_for: string
-//   breed_group: string
-//   life_span: string
-//   temperament: string
-//   origin: string
-//   reference_image_id: string
-//   image: {
-//     id: string
-//     width: number
-//     height: number
-//     url: string
-//   }
-// }
-
-export interface IBreed {
-  weight: Weight
+interface IBreed {
+  weight: {
+    imperial: string
+    metric: string
+  }
   id: string
   name: string
   cfa_url?: string
@@ -79,9 +57,4 @@ export interface IBreed {
   hypoallergenic: number
   reference_image_id: string
   image: IImage
-}
-
-export interface IWeight {
-  imperial: string
-  metric: string
 }

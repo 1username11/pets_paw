@@ -3,16 +3,18 @@
     <router-link :to="routeNames.home">
       <Logo />
     </router-link>
-    <p class="text-5xl font-semibold mt-[85px]" :class="fadeClass">
+
+    <p class="text-5xl font-semibold mt-[85px]">
       Hi intern!
     </p>
-    <p class="text-xl font-normal text-gray-400 mt-2.5" :class="fadeClass">
+    <p class="text-xl font-normal text-gray-400 mt-2.5">
       Welcome to MSI 2021 Front-end test
     </p>
-    <p class="text-xl font-medium mt-[60px]" :class="fadeClass">
+    <p class="text-xl font-medium mt-[60px]">
       Lets start using The Dogs API
     </p>
-    <div class="flex flex-row space-x-4 mt-5">
+
+    <div class="flex  space-x-4 mt-5">
       <NavigationItem
         v-for="navigationItem in navigation"
         :key="navigationItem.name"
@@ -26,7 +28,6 @@
 <script setup lang="ts">
 import { routeNames } from '@/router/route-names'
 import NavigationItem from './NavigationItem.vue'
-import { ref, onMounted } from 'vue'
 
 const navigation: {
   url: string
@@ -45,14 +46,6 @@ const navigation: {
     name: 'gallery'
   }
 ]
-
-const fadeClass = ref('opacity-0')
-
-onMounted(() => {
-  setTimeout(() => {
-    fadeClass.value = 'opacity-100 transition-opacity duration-1000'
-  }, 500)
-})
 </script>
 
 <style scoped lang="scss">
@@ -65,13 +58,5 @@ onMounted(() => {
     background-color: #FF868E;
     color: white;
   }
-}
-
-.opacity-0 {
-  opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
 }
 </style>

@@ -15,7 +15,7 @@
 
     <el-select v-model="limit" clearable placeholder="Limit">
       <el-option
-        v-for="limitItem in limits"
+        v-for="limitItem in [5, 10, 15, 20]"
         :key="limitItem"
         :label="'limit' + ' ' + limitItem"
         :value="limitItem"
@@ -28,7 +28,10 @@
       <DecsendingSorting v-else />
     </div>
 
-    <div class="flex items-center justify-center bg-[#F8F8F7] w-[40px] h-[40px] rounded-2xl cursor-pointer" @click="getBreeds">
+    <div
+      class="flex items-center justify-center bg-[#F8F8F7] w-[40px] h-[40px] rounded-2xl cursor-pointer"
+      @click="getBreeds"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"
@@ -54,8 +57,6 @@
 const generalStore = useGeneralStore()
 const { getBreeds } = generalStore
 const { breedSelectValue, limit, sortingType, breedsNames } = storeToRefs(generalStore)
-
-const limits = [5, 10, 15, 20]
 </script>
 
 <style lang="scss">
