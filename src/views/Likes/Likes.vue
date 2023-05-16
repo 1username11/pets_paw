@@ -2,9 +2,16 @@
   <div>
     <AppToolBar />
     <div v-loading="loading" class="bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl h-[900px] overflow-auto">
-      <BackButton :page="$routeNames.likes" class="mr-2.5" />
-      <NoItemsFound v-if="!liked"/>
-      <Grid v-else :votes="liked" />
+      <BackButton :title="$routeNames.likes" class="mr-2.5" />
+
+      <div v-loading="loading">
+        <Grid
+          v-if="liked.length"
+          :list="liked"
+        />
+
+        <NoItemsFound v-else />
+      </div>
     </div>
   </div>
 </template>

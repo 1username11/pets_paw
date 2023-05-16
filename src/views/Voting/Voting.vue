@@ -3,7 +3,7 @@
     <AppToolBar />
 
     <div v-loading="loading" class="min-h-[780px] bg-white rounded-2xl p-5">
-      <BackButton :page="routeNames.voting" />
+      <BackButton :title="routeNames.voting" />
 
       <div>
         <el-image

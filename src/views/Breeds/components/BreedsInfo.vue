@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <AppToolBar />
     <div class="flex flex-col justify-center bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl">
-      <BackButton :page="$routeNames.breedsInfo" class="mr-2.5" />
+      <BackButton :title="$routeNames.breedsInfo" class="mr-2.5" />
       <el-image v-loading="loading" :src="breedImage[0]?.url" class="rounded-2xl mt-5 min-h-[400px]" fit="cover" />
       <div class="flex flex-col px-10 pb-10 border border-[#FBE0DC] rounded-2xl mt-12">
         <div class="flex flex-col items-center">

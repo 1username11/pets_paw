@@ -4,12 +4,15 @@
 
     <div class="bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl">
       <div class="flex">
-        <BackButton :page="$routeNames.gallery" class="mr-2.5" />
+        <BackButton :title="$routeNames.gallery" class="mr-2.5" />
 
         <Filters />
       </div>
 
-      <Grid :breed="selectedBreeds" />
+      <Grid
+        v-if="selectedBreeds.length"
+        :list="selectedBreeds"
+      />
     </div>
   </div>
 </template>

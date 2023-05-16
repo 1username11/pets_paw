@@ -7,25 +7,26 @@
       <BackButtonIcon />
     </div>
     <div
-      v-if="page !== 'breedsInfo'"
+      v-if="title !== 'breedsInfo'"
       class="flex flex-col justify-center  py-2.5 w-[138px]
        h-10 rounded-lg text-[12px] text-lg tracking-widest  text-center
        bg-[#FF868E] text-white cursor-default uppercase"
     >
-      {{ page }}
+      {{ title }}
     </div>
     <div
-      v-else-if="page === 'breedsInfo'"
+      v-else-if="title === 'breedsInfo'"
       class="flex flex-col justify-center  py-2.5 w-[138px]
        h-10 rounded-lg text-[12px] text-lg tracking-widest  text-center
        bg-[#FBE0DC] text-[#FF868E] cursor-default uppercase"
     >
-      {{ page }}
+      {{ title }}
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 defineProps<{
-  page: string
+  title: string
 }>()
 </script>
