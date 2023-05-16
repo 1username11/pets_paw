@@ -9,15 +9,18 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AddToFavoriteButton: typeof import('./../src/components/AddToFavoriteButton.vue')['default']
     AppToolBar: typeof import('./../src/components/AppToolBar.vue')['default']
     AscendingSorting: typeof import('./../src/components/AscendingSorting.vue')['default']
     AuthButton: typeof import('./../src/views/auth/components/AuthButton.vue')['default']
     BackButton: typeof import('./../src/components/BackButton.vue')['default']
+    BackButtonIcon: typeof import('./../src/components/BackButtonIcon.vue')['default']
     BreedsFilter: typeof import('./../src/components/BreedsFilter.vue')['default']
     BreedsInfo: typeof import('./../src/views/Breeds/components/BreedsInfo.vue')['default']
     BreedsSearch: typeof import('./../src/components/BreedsSearch.vue')['default']
     Compute: typeof import('./../src/components/Compute.vue')['default']
     DecsendingSorting: typeof import('./../src/components/DecsendingSorting.vue')['default']
+    DislikeIcon: typeof import('./../src/components/DislikeIcon.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -32,6 +35,7 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ExampleViewComponent: typeof import('./../src/views/example-view/components/ExampleViewComponent.vue')['default']
+    FavoritesIcon: typeof import('./../src/components/FavoritesIcon.vue')['default']
     FF: typeof import('./../src/components/FF.vue')['default']
     Filters: typeof import('./../src/components/Filters.vue')['default']
     GaleryToolbar: typeof import('./../src/components/GaleryToolbar.vue')['default']
@@ -41,11 +45,14 @@ declare module '@vue/runtime-core' {
     IconCar: typeof import('~icons/icon/car')['default']
     IconCart: typeof import('~icons/icon/cart')['default']
     ImageLimit: typeof import('./../src/components/ImageLimit.vue')['default']
+    LikesIcon: typeof import('./../src/components/LikesIcon.vue')['default']
     Logo: typeof import('./../src/components/Logo.vue')['default']
     Navigation: typeof import('@/views/Navigation/Navigation.vue')['default']
     NoItemsFound: typeof import('./../src/components/NoItemsFound.vue')['default']
+    RefreshIcon: typeof import('./../src/components/RefreshIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchIcon: typeof import('./../src/components/SearchIcon.vue')['default']
     UserLog: typeof import('./../src/components/UserLog.vue')['default']
   }
   export interface ComponentCustomProperties {

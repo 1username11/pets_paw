@@ -119,7 +119,6 @@
 <script setup lang="ts">
 import { router } from '@/router'
 import { routeNames } from '@/router/route-names'
-import Search from '@/views/Search/Search.vue'
 
 defineProps<{
   breeds?: IBreed[]

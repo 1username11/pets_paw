@@ -91,19 +91,18 @@
 </template>
 
 <script lang="ts" setup>
-import { router } from '@/router';
+import { router } from '@/router'
 import { routeNames } from '@/router/route-names'
 console.log(router.currentRoute.value)
 
-
-const randomImage = ref<IImage>({} as IImage)
+const randomImage = ref<IImage>({})
 const loading = ref(true)
 const logs = ref([] as ILog[])
 const addedToFavorite = ref(false)
 
 function logUserAction (action: 'Likes' | 'Dislikes' | 'Favorites') {
   const log: ILog = {
-    imageId: randomImage.value.id,
+    imageId: randomImage.value.id || '',
     action
   }
   if (logs.value.length > 3) {
@@ -122,9 +121,11 @@ async function addToLikes () {
 
 async function addToFavorites () {
   try {
-    addedToFavorite.value = true
-    await generalService.addToFavorites(randomImage.value.id)
-    logUserAction('Favorites')
+    if (randomImage.value.id) {
+      addedToFavorite.value = true
+      await generalService.addToFavorites(randomImage.value.id)
+      logUserAction('Favorites')
+    }
   } catch (e) {
     console.log(e)
   }
