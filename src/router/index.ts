@@ -9,3 +9,11 @@ export const router = createRouter({
 })
 
 router.beforeEach(routeGuard)
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    next('/')
+  } else {
+    next()
+  }
+})
