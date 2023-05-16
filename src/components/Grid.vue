@@ -11,7 +11,7 @@
 const props = defineProps<{
   list: IBreed[] | IVote[]
 }>()
-console.log(props.list)
+
 defineEmits(['removeFromFavorites'])
 
 const gridList = computed(() => {

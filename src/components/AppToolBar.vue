@@ -5,7 +5,7 @@
     >
       <el-input v-model="searchQuery" class="h-full w-full" placeholder="Search for breeds by name" />
 
-      <div @click="$router.push({ name: routeNames.search, params: { breed: searchQuery } })">
+      <div @click="$router.push({ name: routeNames.search})">
         <SearchIcon />
       </div>
     </div>
@@ -34,6 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { routeNames } from '@/router/route-names'
+
 const generalStore = useGeneralStore()
 const { searchQuery } = storeToRefs(generalStore)
 </script>

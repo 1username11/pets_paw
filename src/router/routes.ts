@@ -52,7 +52,7 @@ const routes: Array<RouteRecordRaw> = [
     component: BreedsInfo
   },
   {
-    path: '/search/:breed',
+    path: '/search',
     name: routeNames.search,
     component: Search
   }
