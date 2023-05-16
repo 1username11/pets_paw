@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     BackButton: typeof import('./../src/components/BackButton.vue')['default']
     BackButtonIcon: typeof import('./../src/components/SVGIcons/BackButtonIcon.vue')['default']
     BreedsInfo: typeof import('./../src/views/Breeds/components/BreedsInfo.vue')['default']
+    copy: typeof import('./../src/components/SVGIcons/LogLikeIcon copy.vue')['default']
     DecsendingSorting: typeof import('./../src/components/SVGIcons/DecsendingSorting.vue')['default']
     DislikeIcon: typeof import('./../src/components/SVGIcons/DislikeIcon.vue')['default']
     ElImage: typeof import('element-plus/es')['ElImage']
@@ -26,6 +27,9 @@ declare module '@vue/runtime-core' {
     Grid: typeof import('./../src/components/Grid.vue')['default']
     GridModule: typeof import('./../src/components/GridModule.vue')['default']
     LikesIcon: typeof import('./../src/components/SVGIcons/LikesIcon.vue')['default']
+    LogAddedToFavoriteIcon: typeof import('./../src/components/SVGIcons/LogAddedToFavoriteIcon.vue')['default']
+    LogDislikeIcon: typeof import('./../src/components/SVGIcons/LogDislikeIcon.vue')['default']
+    LogLikeIcon: typeof import('./../src/components/SVGIcons/LogLikeIcon.vue')['default']
     Logo: typeof import('./../src/components/SVGIcons/Logo.vue')['default']
     NoItemsFound: typeof import('./../src/components/NoItemsFound.vue')['default']
     RefreshIcon: typeof import('./../src/components/SVGIcons/RefreshIcon.vue')['default']
@@ -33,6 +37,10 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SearchIcon: typeof import('./../src/components/SVGIcons/SearchIcon.vue')['default']
     UserLog: typeof import('./../src/components/UserLog.vue')['default']
+    VotingAddedToFavorite: typeof import('./../src/components/SVGIcons/VotingAddedToFavorite.vue')['default']
+    VotingAddToFavorite: typeof import('./../src/components/SVGIcons/VotingAddToFavorite.vue')['default']
+    VotingDIslikeIcon: typeof import('./../src/components/SVGIcons/VotingDIslikeIcon.vue')['default']
+    VotingLikeIcon: typeof import('./../src/components/SVGIcons/VotingLikeIcon.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

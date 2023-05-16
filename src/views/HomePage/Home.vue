@@ -3,6 +3,3 @@
     <img class="scale-125" src="src/assets/Home/girl-and-pet.png" alt="No Image">
   </div>
 </template>
-<script setup lang="ts">
-
-</script>

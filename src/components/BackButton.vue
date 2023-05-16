@@ -6,6 +6,7 @@
     >
       <BackButtonIcon />
     </div>
+
     <div
       v-if="title !== 'breedsInfo'"
       class="flex flex-col justify-center  py-2.5 w-[138px]
@@ -14,6 +15,7 @@
     >
       {{ title }}
     </div>
+    
     <div
       v-else-if="title === 'breedsInfo'"
       class="flex flex-col justify-center  py-2.5 w-[138px]

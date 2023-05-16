@@ -18,7 +18,7 @@
           'h-[190px] w-[112px]': names.gallery
         }"
         :src="url"
-        alt="image"
+        :alt="names.voting ? 'voting' : names.breeds ? 'breeds' : 'gallery'"
       >
     </div>
     <div

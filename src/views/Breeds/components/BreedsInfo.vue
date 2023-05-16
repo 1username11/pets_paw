@@ -39,19 +39,16 @@ const loading = ref(false)
 async function getBreedById () {
   breed.value = await generalService.getBreedById(router.currentRoute.value.params.id as string)
 }
+
 async function getBreedImage () {
   breedImage.value = await generalService.getBreedImages(router.currentRoute.value.params.id as string)
 }
 
-onMounted(async () => {
-  try {
-    loading.value = true
-    await getBreedById()
-    await getBreedImage()
-  } catch (error) {
-    console.log(error)
-  } finally {
-    loading.value = false
-  }
-})
+async function getbreedInfo () {
+  loading.value = true
+  await Promise.allSettled([getBreedById(), getBreedImage()])
+  loading.value = false
+}
+
+onMounted(getbreedInfo)
 </script>

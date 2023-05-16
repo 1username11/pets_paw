@@ -21,14 +21,11 @@ const { getVoted } = generalStore
 const loading = ref(false)
 const disliked = ref<IVote[]>([])
 
-onMounted(async () => {
-  try {
-    loading.value = true
-    disliked.value = await getVoted(-1)
-  } catch (error) {
-    console.log(error)
-  } finally {
-    loading.value = false
-  }
-})
+async function getDisliked () {
+  loading.value = true
+  disliked.value = await getVoted(-1)
+  loading.value = false
+}
+  
+onMounted(getDisliked)
 </script>
