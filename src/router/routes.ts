@@ -8,6 +8,7 @@ import Voting from '@/views/Voting/Voting.vue'
 import Likes from '@/views/Likes/Likes.vue'
 import Dislikes from '@/views/Dislikes/Dislikes.vue'
 import Favorite from '@/views/Favorite/Favorite.vue'
+import Search from '@/views/Search/Search.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -49,6 +50,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/breeds/:id',
     name: routeNames.breedsInfo,
     component: BreedsInfo
+  },
+  {
+    path: '/search/:breed',
+    name: routeNames.search,
+    component: Search
   }
 
 ]

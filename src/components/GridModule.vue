@@ -48,7 +48,7 @@
             </svg>
           </div>
         </div>
-        <div v-else-if="currentRoute.breeds" class="flex items-end justify-center pb-3">
+        <div v-else-if="currentRoute.breeds || currentRoute.search" class="flex items-end justify-center pb-3">
           <div
             class="flex items-center justify-center w-[150px] truncate h-8 bg-white rounded-xl
           text-[#FF868E] cursor-pointer hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white px-3"
@@ -119,6 +119,7 @@
 <script setup lang="ts">
 import { router } from '@/router'
 import { routeNames } from '@/router/route-names'
+import Search from '@/views/Search/Search.vue'
 
 defineProps<{
   breeds?: IBreed[]
@@ -134,8 +135,8 @@ const styles = ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', '
 const currentRoute = {
   breeds: router.currentRoute.value.name === 'breeds',
   gallery: router.currentRoute.value.name === 'gallery',
-  favorites: router.currentRoute.value.name === 'favorites'
-
+  favorites: router.currentRoute.value.name === 'favorites',
+  search: router.currentRoute.value.name === 'search'
 }
 
 async function addToFavorites (id: IBreed['id']) {

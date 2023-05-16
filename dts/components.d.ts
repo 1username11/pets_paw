@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     AuthButton: typeof import('./../src/views/auth/components/AuthButton.vue')['default']
     BackButton: typeof import('./../src/components/BackButton.vue')['default']
     BreedsFilter: typeof import('./../src/components/BreedsFilter.vue')['default']
+    BreedsInfo: typeof import('./../src/views/Breeds/components/BreedsInfo.vue')['default']
     BreedsSearch: typeof import('./../src/components/BreedsSearch.vue')['default']
     Compute: typeof import('./../src/components/Compute.vue')['default']
     DecsendingSorting: typeof import('./../src/components/DecsendingSorting.vue')['default']

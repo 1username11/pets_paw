@@ -4,12 +4,17 @@ export const useGeneralStore = defineStore('generalStore', () => {
   const limit = ref<number | undefined>()
   const sortingType = ref<'asc' | 'desc'>('asc')
   const breedsNames = computed<string[]>(() => breedsList.value.map((breed) => breed.name))
+  const searchQuery = ref<string>('')
+  const breedsForSearch = computed(() => {
+    return breedsList.value
+      .filter((breed: IBreed) => breed.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
+  })
 
-  async function getBreeds () {
-    breedsList.value = await generalService.getBreeds(20, Math.floor(Math.random() * 4))
+  async function getBreeds() {
+    breedsList.value = await generalService.getBreeds(100, 0)
   }
 
-  async function getVoted (value: 1 | -1) {
+  async function getVoted(value: 1 | -1) {
     if (value === 1) {
       const res = await generalService.getVoted()
       return res.filter((vote: IVote) => vote.value === 1)
@@ -31,15 +36,23 @@ export const useGeneralStore = defineStore('generalStore', () => {
     return filteredBreeds
   })
 
+  function resetFilters() {
+    breedSelectValue.value = ''
+    limit.value = undefined
+    sortingType.value = 'asc'
+  }
   return {
+    searchQuery,
     breedsList,
     breedSelectValue,
     limit,
     sortingType,
     breedsNames,
     selectedBreeds,
+    breedsForSearch,
     getBreeds,
-    getVoted
+    getVoted,
+    resetFilters
   }
 })
 

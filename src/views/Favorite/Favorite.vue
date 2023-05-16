@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppToolBar />
-    <div class="bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl max-h-[900px] overflow-auto">
+    <div v-loading="loading" class="bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl h-[900px] overflow-auto">
       <BackButton :page="$routeNames.favorite" class="mr-2.5" />
       <NoItemsFound v-if="!favorites"/>
       <Grid v-else :votes="favorites" @removeFromFavorites="removeFromFavorites"/>

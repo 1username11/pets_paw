@@ -3,14 +3,14 @@
     <AppToolBar />
     <div class="flex flex-col justify-center bg-white max-w-[680px] py-5 px-4 mt-2.5 rounded-2xl">
       <BackButton :page="$routeNames.breedsInfo" class="mr-2.5" />
-      <el-image :src="breedImage[0]?.url" class="rounded-2xl mt-5" fit="cover" />
+      <el-image v-loading="loading" :src="breedImage[0]?.url" class="rounded-2xl mt-5 min-h-[400px]" fit="cover" />
       <div class="flex flex-col px-10 pb-10 border border-[#FBE0DC] rounded-2xl mt-12">
         <div class="flex flex-col items-center">
           <div
-            class="flex justify-center items-center text-center w-[193px] h-[62px] -mt-[31px]
+            class="flex justify-center items-center text-center w-[200px] h-[62px] -mt-[31px]
           bg-white z-50 rounded-2xl text-4xl"
           >
-            {{ breed?.name  }}
+            {{ breed?.name }}
           </div>
           <div class="text-center text-xl text-gray-400">{{ breed?.description }}</div>
         </div>
@@ -34,6 +34,7 @@
 const router = useRouter()
 const breed = ref<IBreed>()
 const breedImage = ref([] as IImage[])
+const loading = ref(false)
 
 async function getBreedById () {
   breed.value = await generalService.getBreedById(router.currentRoute.value.params.id as string)
@@ -43,7 +44,14 @@ async function getBreedImage () {
 }
 
 onMounted(async () => {
-  await getBreedById()
-  await getBreedImage()
+  try {
+    loading.value = true
+    await getBreedById()
+    await getBreedImage()
+  } catch (error) {
+    console.log(error)
+  } finally {
+    loading.value = false
+  }
 })
 </script>

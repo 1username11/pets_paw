@@ -7,5 +7,6 @@ export const routeNames = {
   likes: 'likes',
   dislikes: 'dislikes',
   favorite: 'favorites',
-  breedsInfo: 'breedsInfo'
+  breedsInfo: 'breedsInfo',
+  search: 'search'
 }

@@ -15,7 +15,9 @@
 </template>
 
 <script setup lang="ts">
-
 const generalStore = useGeneralStore()
 const { selectedBreeds } = storeToRefs(generalStore)
+const { resetFilters } = generalStore
+
+onUnmounted(resetFilters)
 </script>

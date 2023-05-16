@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center bg-[#F8F8F7] pt-7 pb-7 w-full h-full space-x-[150px]">
+  <div class="flex justify-center bg-[#F8F8F7] pt-7 pb-7 w-full min-h-screen max-h-fit space-x-[150px]">
     <Navigation />
     <RouterView />
   </div>

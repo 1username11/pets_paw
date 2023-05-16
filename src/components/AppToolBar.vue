@@ -1,28 +1,34 @@
 <template>
   <div class="max-w-[680px] flex justify-between space-x-2.5">
-    <div class="h-[60px] bg-white py-2.5 px-5 rounded-3xl w-[470px] flex justify-between space-x-1">
-      <input type="text" class="h-full w-full" placeholder="Search for breeds by name">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="#FBE0DC" />
-        <g clip-path="url(#clip0_82_87)">
-          <path
-            d="M29.361 28.2168L24.601 23.2662C25.8249 21.8113 26.4954 19.9807 26.4954 18.075C26.4954 13.6225 22.8729
+    <div
+      class="h-[60px] bg-white py-2.5 px-5 rounded-2xl w-[470px] flex justify-between space-x-1"
+    >
+      <el-input v-model="searchQuery" class="h-full w-full border-none" placeholder="Search for breeds by name" />
+
+      <div @click="$router.push({ name: routeNames.search, params: { breed: searchQuery } })">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="10" fill="#FBE0DC" />
+          <g clip-path="url(#clip0_82_87)">
+            <path
+              d="M29.361 28.2168L24.601 23.2662C25.8249 21.8113 26.4954 19.9807 26.4954 18.075C26.4954 13.6225 22.8729
           10 18.4205 10C13.968 10 10.3455 13.6225 10.3455 18.075C10.3455 22.5275 13.968 26.15 18.4205 26.15C20.092 26.15
           21.6849 25.6458 23.0467 24.6888L27.8429 29.677C28.0434 29.8852 28.313 30 28.602 30C28.8755 30 29.1349 29.8957
           29.3319 29.7061C29.7504 29.3034 29.7637 28.6357 29.361 28.2168ZM18.4205 12.1065C21.7115 12.1065 24.3889
           14.7839 24.3889 18.075C24.3889 21.3661 21.7115 24.0435 18.4205 24.0435C15.1294 24.0435 12.452 21.3661
           12.452 18.075C12.452 14.7839 15.1294 12.1065 18.4205 12.1065Z" fill="#FF868E"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_82_87">
-            <rect width="20" height="20" fill="white" transform="translate(10 10)" />
-          </clipPath>
-        </defs>
-      </svg>
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_82_87">
+              <rect width="20" height="20" fill="white" transform="translate(10 10)" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
     </div>
+
     <router-link
-      class="flex items-center justify-center bg-white rounded-3xl w-[60px] h-[60px] hover:bg-[#FBE0DC] img-wrapper"
+      class="flex items-center justify-center bg-white rounded-2xl w-[60px] h-[60px] hover:bg-[#FBE0DC] img-wrapper"
       :to="{name: $routeNames.likes}"
     >
       <svg
@@ -42,8 +48,9 @@
         />
       </svg>
     </router-link>
+
     <router-link
-      class="flex items-center justify-center bg-white rounded-3xl w-[60px] h-[60px] hover:bg-[#FBE0DC]"
+      class="flex items-center justify-center bg-white rounded-2xl w-[60px] h-[60px] hover:bg-[#FBE0DC]"
       :to="{name: $routeNames.favorite}"
     >
       <svg
@@ -66,8 +73,9 @@
         />
       </svg>
     </router-link>
+
     <router-link
-      class="flex items-center justify-center bg-white rounded-3xl w-[60px] h-[60px] hover:bg-[#FBE0DC]"
+      class="flex items-center justify-center bg-white rounded-2xl w-[60px] h-[60px] hover:bg-[#FBE0DC]"
       :to="{name: $routeNames.dislikes}"
     >
       <svg
@@ -89,6 +97,11 @@
     </router-link>
   </div>
 </template>
+<script lang="ts" setup>
+import { routeNames } from '@/router/route-names'
+const generalStore = useGeneralStore()
+const { searchQuery } = storeToRefs(generalStore)
+</script>
 
 <style scoped lang="scss">
 .router-link-active.router-link-exact-active {

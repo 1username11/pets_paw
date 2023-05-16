@@ -7,8 +7,8 @@ class GeneralService {
     return useHttp.post('/favourites', { image_id: id })
   }
 
-  removeFromFavorites (id) {
-    return useHttp.delete(`/favourites/${id}` )
+  removeFromFavorites (id: number) {
+    return useHttp.delete(`/favourites/${id}`)
   }
 
   vote (payload: any) { // TODO: add type for payload
