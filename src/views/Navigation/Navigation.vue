@@ -34,15 +34,15 @@ const navigation: {
   name: 'voting' | 'breeds' | 'gallery'
 }[] = [
   {
-    url: `${window.location.origin}/src/assets/NavigationImages/vote-table.png`,
+    url: '@/assets/NavigationImages/vote-table.png',
     name: 'voting'
   },
   {
-    url: `${window.location.origin}/src/assets/NavigationImages/pet-breeds.png`,
+    url: '@/assets/NavigationImages/pet-breeds.png',
     name: 'breeds'
   },
   {
-    url: `${window.location.origin}/src/assets/NavigationImages/images-search.png`,
+    url: '@/assets/NavigationImages/images-search.png',
     name: 'gallery'
   }
 ]
