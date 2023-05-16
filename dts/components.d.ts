@@ -17,6 +17,10 @@ declare module '@vue/runtime-core' {
     BreedsInfo: typeof import('./../src/views/Breeds/components/BreedsInfo.vue')['default']
     DecsendingSorting: typeof import('./../src/components/SVGIcons/DecsendingSorting.vue')['default']
     DislikeIcon: typeof import('./../src/components/SVGIcons/DislikeIcon.vue')['default']
+    ElImage: typeof import('element-plus/es')['ElImage']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     FavoritesIcon: typeof import('./../src/components/SVGIcons/FavoritesIcon.vue')['default']
     Filters: typeof import('./../src/components/Filters.vue')['default']
     Grid: typeof import('./../src/components/Grid.vue')['default']
@@ -36,5 +40,8 @@ declare module '@vue/runtime-core' {
     VotingAddToFavorite: typeof import('./../src/components/SVGIcons/VotingAddToFavorite.vue')['default']
     VotingDIslikeIcon: typeof import('./../src/components/SVGIcons/VotingDIslikeIcon.vue')['default']
     VotingLikeIcon: typeof import('./../src/components/SVGIcons/VotingLikeIcon.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

@@ -34,7 +34,7 @@
             text-[#FF868E] cursor-pointer hover:bg-[#FBE0DC] active:bg-[#FF868E] active:text-white px-3"
               @click="router.push({ name: routeNames.breedsInfo, params: { id: item.id } })"
             >
-              {{ item.name }}
+              {{ (item as IBreed).name }}
             </div>
           </div>
         </div>
