@@ -18,7 +18,6 @@
       <NavigationItem
         v-for="navigationItem in navigation"
         :key="navigationItem.name"
-        :url="navigationItem.url"
         :name="navigationItem.name"
       />
     </div>
@@ -30,19 +29,15 @@ import { routeNames } from '@/router/route-names'
 import NavigationItem from './NavigationItem.vue'
 
 const navigation: {
-  url: string
   name: 'voting' | 'breeds' | 'gallery'
 }[] = [
   {
-    url: 'src/assets/NavigationImages/vote-table.png',
     name: 'voting'
   },
   {
-    url: 'src/assets/NavigationImages/pet-breeds.png',
     name: 'breeds'
   },
   {
-    url: 'src/assets/NavigationImages/images-search.png',
     name: 'gallery'
   }
 ]

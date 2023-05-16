@@ -11,14 +11,22 @@
       }"
     >
       <img
-        class="mx-auto"
-        :class="{
-          'h-[124px] w-[100px]': names.voting,
-          'h-[163px] w-[117px] ': names.breeds,
-          'h-[190px] w-[112px]': names.gallery
-        }"
-        :src="url"
-        :alt="names.voting ? 'voting' : names.breeds ? 'breeds' : 'gallery'"
+        v-if="names.breeds"
+        class="mx-auto h-[163px] w-[117px]"
+        src="@/assets/NavigationImages/pet-breeds.png"
+        alt="breeds"
+      >
+      <img
+        v-else-if="names.voting"
+        class="mx-auto h-[124px] w-[100px]"
+        src="@/assets/NavigationImages/vote-table.png"
+        alt="voting"
+      >
+      <img
+        v-else-if="names.gallery"
+        class="mx-auto h-[190px] w-[112px]"
+        src="@/assets/NavigationImages/images-search.png"
+        alt="gallery"
       >
     </div>
     <div
@@ -33,7 +41,6 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  url: string
   name: 'breeds' | 'voting' | 'gallery'
 }>()
 
