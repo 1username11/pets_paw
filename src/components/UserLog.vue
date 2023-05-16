@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="log.action === 'Likes'"
+    v-if="log.action === 'likes'"
     class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl"
   >
     <div class="py-1 px-3 bg-white rounded-2xl">
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div
-    v-else-if="log.action === 'Dislikes'"
+    v-else-if="log.action === 'dislikes'"
     class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl"
   >
     <div class="py-1 px-3 bg-white rounded-2xl">

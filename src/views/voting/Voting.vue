@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import VotingDIslikeIcon from '@/components/SVGIcons/VotingDIslikeIcon.vue'
+import VotingDIslikeIcon from '@/components/svg-icons/VotingDIslikeIcon.vue'
 import { routeNames } from '@/router/route-names'
 
 const randomImage = ref<IImage>({})

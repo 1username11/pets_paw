@@ -1,14 +1,14 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { routeNames } from '@/router/route-names'
-import Home from '@/views/HomePage/Home.vue'
-import Breeds from '@/views/Breeds/Breeds.vue'
-import BreedsInfo from '@/views/Breeds/components/BreedsInfo.vue'
-import Gallery from '@/views/Gallery/Gallery.vue'
-import Voting from '@/views/Voting/Voting.vue'
-import Likes from '@/views/Likes/Likes.vue'
-import Dislikes from '@/views/Dislikes/Dislikes.vue'
-import Favorite from '@/views/Favorite/Favorite.vue'
-import Search from '@/views/Search/Search.vue'
+import Home from '@/views/home-page/Home.vue'
+import Breeds from '@/views/breeds/Breeds.vue'
+import BreedsInfo from '@/views/breeds/components/BreedsInfo.vue'
+import Gallery from '@/views/gallery/Gallery.vue'
+import Voting from '@/views/voting/Voting.vue'
+import Likes from '@/views/likes/Likes.vue'
+import Dislikes from '@/views/dislikes/Dislikes.vue'
+import Favorite from '@/views/favorite/Favorite.vue'
+import Search from '@/views/search/Search.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
