@@ -50,7 +50,7 @@
             class="flex items-center justify-center"
             @click="removeFromFavorites(item.id as number)"
           >
-          <AddToFavoriteButton />
+            <AddToFavoriteButton />
           </div>
         </div>
       </template>

@@ -22,9 +22,14 @@ const loading = ref(false)
 const liked = ref<IVote[]>([])
 
 async function getLiked () {
-  loading.value = true
-  liked.value = await getVoted(1)
-  loading.value = false
+  try {
+    loading.value = true
+    liked.value = await getVoted(1)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    loading.value = false
+  }
 }
 
 onMounted(getLiked)

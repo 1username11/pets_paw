@@ -22,10 +22,15 @@ const loading = ref(false)
 const disliked = ref<IVote[]>([])
 
 async function getDisliked () {
-  loading.value = true
-  disliked.value = await getVoted(-1)
-  loading.value = false
+  try {
+    loading.value = true
+    disliked.value = await getVoted(-1)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    loading.value = false
+  }
 }
-  
+
 onMounted(getDisliked)
 </script>
