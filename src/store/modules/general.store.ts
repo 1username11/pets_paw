@@ -1,17 +1,18 @@
 export const useGeneralStore = defineStore('generalStore', () => {
   const breedsList = ref<IBreed[]>([])
+  const breedListForSearch = ref<IBreed[]>([])
   const breedSelectValue = ref<string>('')
   const limit = ref<number | undefined>()
   const sortingType = ref<'asc' | 'desc'>('asc')
   const breedsNames = computed<string[]>(() => breedsList.value.map((breed) => breed.name))
   const searchQuery = ref<string>('')
   const breedsForSearch = computed(() => {
-    return breedsList.value
+    return breedListForSearch.value
       .filter((breed: IBreed) => breed.name.toLowerCase().includes(searchQuery.value.toLowerCase()))
   })
 
   async function getBreeds () {
-    breedsList.value = await generalService.getBreeds(100, 0)
+    breedsList.value = await generalService.getBreeds(30, Math.floor(Math.random() * 3))
   }
 
   async function getVoted (value: 1 | -1) {
@@ -50,6 +51,7 @@ export const useGeneralStore = defineStore('generalStore', () => {
     breedsNames,
     selectedBreeds,
     breedsForSearch,
+    breedListForSearch,
     getBreeds,
     getVoted,
     resetFilters

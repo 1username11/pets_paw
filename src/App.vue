@@ -10,6 +10,10 @@ import Navigation from '@/views/navigation/Navigation.vue'
 
 const generalStore = useGeneralStore()
 const { getBreeds } = generalStore
+const { breedListForSearch } = storeToRefs(generalStore)
 
-onMounted(getBreeds)
+onMounted(async () => {
+  getBreeds()
+  breedListForSearch.value = await generalService.getBreeds(150, 0)
+})
 </script>

@@ -30,7 +30,7 @@
 
     <div
       class="flex items-center justify-center bg-[#F8F8F7] w-[40px] h-[40px] rounded-2xl cursor-pointer"
-      @click="getBreeds"
+      @click="getBreeds()"
     >
       <RefreshIcon />
     </div>
