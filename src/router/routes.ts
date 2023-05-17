@@ -55,6 +55,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/search',
     name: routeNames.search,
     component: Search
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: { name: routeNames.home }
   }
 
 ]
