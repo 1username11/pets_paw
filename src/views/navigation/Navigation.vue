@@ -28,7 +28,7 @@
 import { routeNames } from '@/router/route-names'
 import NavigationItem from './NavigationItem.vue'
 
-const navigation: ('voting' | 'breeds' | 'gallery')[] = ['voting', 'breeds', 'gallery']
+const navigation = ['voting', 'breeds', 'gallery'] as const
 </script>
 
 <style scoped lang="scss">

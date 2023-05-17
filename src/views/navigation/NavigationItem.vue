@@ -16,12 +16,14 @@
         src="@/assets/NavigationImages/pet-breeds.png"
         alt="breeds"
       >
+
       <img
         v-else-if="names.voting"
         class="mx-auto h-[124px] w-[100px]"
         src="@/assets/NavigationImages/vote-table.png"
         alt="voting"
       >
+
       <img
         v-else-if="names.gallery"
         class="mx-auto h-[190px] w-[112px]"

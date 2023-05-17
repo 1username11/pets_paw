@@ -1,49 +1,22 @@
 <template>
   <div
-    v-if="log.action === 'likes'"
     class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl"
   >
     <div class="py-1 px-3 bg-white rounded-2xl">
-      {{ `${date.getHours()}:${date.getMinutes()}` }}
+      {{ `${hours}:${minutes}` }}
     </div>
 
     <div>
       Image ID: {{ log.imageId }} was added to {{ log.action }}
     </div>
 
-    <div>
+    <div v-if="log.action === 'Likes'">
       <LogLikeIcon />
     </div>
-  </div>
-  <div
-    v-else-if="log.action === 'Favorites'"
-    class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl"
-  >
-    <div class="py-1 px-3 bg-white rounded-2xl">
-      {{ `${date.getHours()}:${date.getMinutes()}` }}
-    </div>
-
-    <div>
-      Image ID: {{ log.imageId }} was added to {{ log.action }}
-    </div>
-
-    <div>
+    <div v-else-if="log.action === 'Favorites'">
       <LogAddedToFavoriteIcon />
     </div>
-  </div>
-  <div
-    v-else-if="log.action === 'dislikes'"
-    class="flex justify-between py-4 px-6 w-full h-[60px] bg-[#F8F8F7] rounded-2xl"
-  >
-    <div class="py-1 px-3 bg-white rounded-2xl">
-      {{ `${date.getHours()}:${date.getMinutes()}` }}
-    </div>
-
-    <div>
-      Image ID: {{ log.imageId }} was added to {{ log.action }}
-    </div>
-
-    <div>
+    <div v-else-if="log.action === 'Dislikes'">
       <LogDislikeIcon />
     </div>
   </div>
@@ -54,4 +27,6 @@ defineProps<{
   log: ILog
 }>()
 const date = new Date()
+const hours = date.getHours().toString().padStart(2, '0')
+const minutes = date.getMinutes().toString().padStart(2, '0')
 </script>

@@ -13,7 +13,7 @@
           class="w-[640px] h-[360px] mt-5 rounded-[20px] z-0"
         />
         <div
-          class="flex justify-center items-center mx-auto bg-white w-[258px] h-[88px] rounded-2xl mt-[-40px]
+          class="flex justify-center items-center mx-auto bg-white w-[258px] h-[88px] rounded-2xl mt-[-44px]
           relative space-x-1 z-50"
         >
           <button
@@ -74,9 +74,21 @@ function logUserAction (action: 'Likes' | 'Dislikes' | 'Favorites') {
 }
 
 async function addToLikes () {
-  await vote(1)
-  logUserAction('Likes')
-  await getImage()
+  const promises = [
+    vote(1).then(() => logUserAction('Likes')),
+    getImage()
+  ]
+
+  try {
+    const results = await Promise.allSettled(promises)
+    results.forEach((result) => {
+      if (result.status === 'rejected') {
+        console.log(result.reason)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 async function addToFavorites () {
@@ -92,9 +104,21 @@ async function addToFavorites () {
 }
 
 async function addToDislikes () {
-  await vote(-1)
-  logUserAction('Dislikes')
-  await getImage()
+  const promises = [
+    vote(-1).then(() => logUserAction('Dislikes')),
+    getImage()
+  ]
+
+  try {
+    const results = await Promise.allSettled(promises)
+    results.forEach((result) => {
+      if (result.status === 'rejected') {
+        console.log(result.reason)
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 async function vote (value: 1 | -1) {
