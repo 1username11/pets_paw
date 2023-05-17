@@ -17,8 +17,8 @@
     <div class="flex  space-x-4 mt-5">
       <NavigationItem
         v-for="navigationItem in navigation"
-        :key="navigationItem.name"
-        :name="navigationItem.name"
+        :key="navigationItem"
+        :name="navigationItem"
       />
     </div>
   </div>
@@ -28,19 +28,20 @@
 import { routeNames } from '@/router/route-names'
 import NavigationItem from './NavigationItem.vue'
 
-const navigation: {
-  name: 'voting' | 'breeds' | 'gallery'
-}[] = [
-  {
-    name: 'voting'
-  },
-  {
-    name: 'breeds'
-  },
-  {
-    name: 'gallery'
-  }
-]
+// const navigation: {
+//   name: 'voting' | 'breeds' | 'gallery'
+// }[] = [
+//   {
+//     name: 'voting'
+//   },
+//   {
+//     name: 'breeds'
+//   },
+//   {
+//     name: 'gallery'
+//   }
+// ]
+const navigation: ('voting' | 'breeds' | 'gallery')[] = ['voting', 'breeds', 'gallery']
 </script>
 
 <style scoped lang="scss">

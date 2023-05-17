@@ -1,60 +1,51 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { routeNames } from '@/router/route-names'
-import Home from '@/views/home-page/Home.vue'
-import Breeds from '@/views/breeds/Breeds.vue'
-import BreedsInfo from '@/views/breeds/components/BreedsInfo.vue'
-import Gallery from '@/views/gallery/Gallery.vue'
-import Voting from '@/views/voting/Voting.vue'
-import Likes from '@/views/likes/Likes.vue'
-import Dislikes from '@/views/dislikes/Dislikes.vue'
-import Favorite from '@/views/favorite/Favorite.vue'
-import Search from '@/views/search/Search.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: routeNames.home,
-    component: Home
+    component: import('@/views/home-page/Home.vue')
   },
   {
     path: '/breeds',
     name: routeNames.breeds,
-    component: Breeds
+    component: import('@/views/breeds/Breeds.vue')
   },
   {
     path: '/gallery',
     name: routeNames.gallery,
-    component: Gallery
+    component: import('@/views/gallery/Gallery.vue')
   },
   {
     path: '/voting',
     name: routeNames.voting,
-    component: Voting
+    component: import('@/views/voting/Voting.vue')
   },
   {
     path: '/likes',
     name: routeNames.likes,
-    component: Likes
+    component: import('@/views/likes/Likes.vue')
   },
   {
     path: '/dislikes',
     name: routeNames.dislikes,
-    component: Dislikes
+    component: import('@/views/dislikes/Dislikes.vue')
   },
   {
     path: '/favorite',
     name: routeNames.favorite,
-    component: Favorite
+    component: import('@/views/favorite/Favorite.vue')
   },
   {
     path: '/breeds/:id',
     name: routeNames.breedsInfo,
-    component: BreedsInfo
+    component: import('@/views/breeds/components/BreedsInfo.vue')
   },
   {
     path: '/search',
     name: routeNames.search,
-    component: Search
+    component: import('@/views/search/Search.vue')
   },
   {
     path: '/:pathMatch(.*)*',

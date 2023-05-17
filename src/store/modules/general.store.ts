@@ -12,7 +12,7 @@ export const useGeneralStore = defineStore('generalStore', () => {
   })
 
   async function getBreeds () {
-    breedsList.value = await generalService.getBreeds(30, Math.floor(Math.random() * 3))
+    breedsList.value = await generalService.getBreeds(20, Math.floor(Math.random() * 3))
   }
 
   async function getVoted (value: 1 | -1) {
