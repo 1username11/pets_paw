@@ -28,19 +28,6 @@
 import { routeNames } from '@/router/route-names'
 import NavigationItem from './NavigationItem.vue'
 
-// const navigation: {
-//   name: 'voting' | 'breeds' | 'gallery'
-// }[] = [
-//   {
-//     name: 'voting'
-//   },
-//   {
-//     name: 'breeds'
-//   },
-//   {
-//     name: 'gallery'
-//   }
-// ]
 const navigation: ('voting' | 'breeds' | 'gallery')[] = ['voting', 'breeds', 'gallery']
 </script>
 
